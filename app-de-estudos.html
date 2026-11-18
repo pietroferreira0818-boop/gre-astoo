@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>gre astro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--tx:#1f2330;--mu:#6b7080;--ac:#3b5bdb;--ok:#2f9e44;--no:#e03131;--bd:#e3e1da;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181f;--card:#20232d;--tx:#eceef4;--mu:#9aa0b3;--ac:#7b93ff;--ok:#51cf66;--no:#ff6b6b;--bd:#323646;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16181f;--card:#20232d;--tx:#eceef4;--mu:#9aa0b3;--ac:#7b93ff;--ok:#51cf66;--no:#ff6b6b;--bd:#323646;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,#22c55e 0%,#15803d 30%,#052e16 65%,#000 100%) fixed;color:var(--tx);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:560px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.2rem;margin:.2em 0 .6em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin:14px 0}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input,textarea,select{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
+textarea{min-height:110px;resize:vertical}
+button{font:inherit;border:0;border-radius:12px;padding:12px 18px;background:var(--ac);color:#fff;font-weight:600;cursor:pointer;width:100%;margin-top:14px}
+button.sec{background:var(--bg);color:var(--tx);border:1px solid var(--bd)}
+button:disabled{opacity:.5}
+.mu{color:var(--mu);font-size:.9rem}.hide{display:none!important}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+.sum{white-space:pre-wrap}
+#stack{position:relative;height:300px;margin:18px 0;touch-action:pan-y}
+.sw{position:absolute;inset:0;background:var(--card);border:2px solid var(--bd);border-radius:20px;padding:24px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.15rem;font-weight:600;user-select:none;touch-action:none;cursor:grab}
+.row{display:flex;gap:10px}.row button{margin-top:0}
+.no{background:var(--no)}.ok{background:var(--ok)}
+.opt{display:block;text-align:left;background:var(--bg);color:var(--tx);border:1px solid var(--bd);margin-top:8px}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--bg))}
+.opt.wrong{border-color:var(--no);background:color-mix(in srgb,var(--no) 18%,var(--bg))}
+.fb{margin-top:10px;font-size:.95rem}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}section{animation:fi .35s ease}button{transition:transform .12s,opacity .2s}button:active{transform:scale(.96)}
+:root:root:root{--bg:#070907;--card:#121612;--tx:#f1f5f1;--mu:#98a39a;--ac:#16a34a;--ok:#15803d;--no:#b91c1c;--bd:#243026;color-scheme:dark}
+.lk{display:block;padding:10px 12px;margin-top:8px;border:1px solid var(--bd);border-radius:10px;color:#4ade80;text-decoration:none;font-weight:600}
+#dial{-webkit-tap-highlight-color:transparent}#dv{transform-box:fill-box;transform-origin:center}
+.chip{width:auto;margin:0;padding:8px 14px;background:var(--bg);color:var(--tx);border:1px solid var(--bd);font-weight:500}.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}#mats{display:flex;flex-wrap:wrap;gap:8px}.nt{background:var(--card);border:1px solid var(--ac);border-radius:14px;padding:12px 14px;margin:10px 0;display:flex;gap:10px;align-items:flex-start}.nt button{width:auto;margin:0;padding:4px 10px;background:var(--bg);color:var(--tx);border:1px solid var(--bd)}
+#hd,#sub{display:none}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script></head><body><main>
+<h1 id="hd">Gre Astro</h1>
+<p class="mu" id="sub">Resumo, quiz de deslizar e teste final, feitos pela IA com o seu material.</p>
+
+<div id="notes"></div>
+<section id="s0" style="position:relative;overflow:hidden;text-align:center;padding:72px 8px;min-height:80vh;display:flex;flex-direction:column;justify-content:center"><span style="position:absolute;top:6px;left:6px;font-size:3.2rem;transform:rotate(-12deg)">🧬</span><span style="position:absolute;top:6px;right:6px;font-size:3.2rem;transform:rotate(10deg)">🌍</span><span style="position:absolute;top:42%;left:0;font-size:2.6rem;transform:rotate(-8deg)">📖</span><span style="position:absolute;top:42%;right:0;font-size:2.6rem;transform:rotate(8deg)">👥</span><span style="position:absolute;bottom:6px;left:6px;font-size:3.2rem;transform:rotate(10deg)">⚗️</span><span style="position:absolute;bottom:6px;right:6px;font-size:3.2rem;transform:rotate(-10deg)">📐</span><h2 style="font-size:2.4rem;line-height:1.1;margin:0;color:#fff;font-weight:800">Bem-vindo</h2><div style="font-size:4.4rem;line-height:1.1;font-weight:900;color:#fff;margin:.2em 0 1em">Gre Astro</div><button id="start" style="background:#fff;color:#052e16;font-size:1.3rem;padding:16px 18px">Começar</button></section>
+<section id="s1" class="card hide">
+<label>Matéria</label><div id="mats"></div>
+<label>Dia da prova</label><div class="row"><select id="dd"></select><select id="mes"></select></div>
+<label>Arquivos dos assuntos (PDF, .txt, .md) ou cole o texto</label>
+<input id="file" type="file" accept=".pdf,.txt,.md,.csv,text/*" multiple>
+<p class="mu" id="fs"></p>
+<textarea id="txt" placeholder="Cole aqui o conteúdo que vai cair na prova…"></textarea>
+<label>Quanto quer estudar <span class="mu">(gire o círculo)</span></label>
+<svg id="dial" viewBox="0 0 160 160" width="190" height="190" style="display:block;margin:8px auto;touch-action:none;cursor:pointer"><circle cx="80" cy="80" r="64" fill="none" stroke="var(--bd)" stroke-width="14"/><circle id="arc" cx="80" cy="80" r="64" fill="none" stroke="var(--ac)" stroke-width="14" stroke-linecap="round" transform="rotate(-90 80 80)" stroke-dasharray="0 402.1"/><circle id="kn" r="11" fill="#fff" stroke="var(--ac)" stroke-width="4"/><text id="dv" x="80" y="80" text-anchor="middle" dominant-baseline="central" font-size="34" font-weight="700" fill="var(--tx)">50%</text></svg>
+<button id="go">Gerar resumo</button>
+<p class="mu" id="err"></p>
+</section>
+
+<section id="s2" class="card hide"><h2>Resumo</h2><button id="lis" class="sec" style="margin:0 0 12px">🔊 Ouvir o resumo</button><div id="sum" class="sum"></div><div id="vids"></div>
+<p id="rq" style="font-weight:600;margin-top:18px"></p>
+<div class="row"><button id="rYes"></button><button id="rNo" class="sec"></button></div></section>
+
+<section id="s3" class="hide">
+<p class="mu" id="qp"></p><div class="bar"><i id="qb"></i></div>
+<p class="mu" style="text-align:center">← Falso &nbsp;|&nbsp; Verdadeiro →</p>
+<div id="stack"></div>
+<div class="row"><button class="no" id="bn">✗ Falso</button><button class="ok" id="by">✓ Verdadeiro</button></div>
+<p class="fb" id="qf"></p></section>
+
+<section id="s6" class="card hide"><h2>Quiz concluído! 🎉</h2><p id="qr"></p><p style="font-weight:600">Pronto para o teste final?</p>
+<div class="row"><button id="tYes">Começar agora</button><button id="tNo" class="sec">Revisar mais um pouco</button></div></section>
+<section id="s4" class="card hide"><p class="mu" id="tp"></p><h2 id="tq"></h2><div id="to"></div><p class="fb" id="tf"></p>
+<button id="tn" class="hide">Próxima</button></section>
+
+<section id="s5" class="card hide"><h2>Resultado</h2><p id="res"></p>
+<button id="again" class="sec">Estudar de novo</button></section>
+
+<script>
+const $=id=>document.getElementById(id);
+const show=n=>{try{stopSpeak()}catch(e){}$("hd").classList.toggle("hide",n==0);$("sub").classList.toggle("hide",n==0);["s0","s1","s2","s3","s4","s5","s6"].forEach(s=>$(s).classList.toggle("hide",s!="s"+n))};
+let sample=null,material="",cfg={},cards=[],ci=0,qs=[],ti=0,score=0,hits=0;
+try{claude.use("sample").then(s=>{sample=s;if(!s)$("err").textContent="A IA não está disponível nesta visualização."}).catch(()=>{})}catch(e){$("err").textContent="A IA não está disponível fora do Claude."}
+let pct=50,mat="";
+let cur=50,raf=0;
+function draw(v){$("dv").textContent=Math.round(v/10)*10+"%";$("arc").setAttribute("stroke-dasharray",(v/100*402.1)+" 402.1");const a=v/100*2*Math.PI-Math.PI/2;$("kn").setAttribute("cx",80+64*Math.cos(a));$("kn").setAttribute("cy",80+64*Math.sin(a))}
+function setPct(v){pct=v;cancelAnimationFrame(raf);const step=()=>{cur+=(pct-cur)*0.22;if(Math.abs(pct-cur)<0.15)cur=pct;draw(cur);if(cur!==pct)raf=requestAnimationFrame(step)};step()}
+const dial=$("dial");let dr=false;
+let lastA=null;
+const mv=e=>{const r=dial.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;let a=Math.atan2(x,-y)*180/Math.PI;if(a<0)a+=360;if(lastA!=null&&Math.abs(a-lastA)>180)a=lastA>180?360:0;lastA=a;const v=Math.round(Math.min(100,Math.max(10,a/3.6))/10)*10;if(v!==pct){pct=v;cancelAnimationFrame(raf);cur=v;draw(v);try{$("dv").animate([{transform:"scale(1.3)"},{transform:"scale(1)"}],{duration:160});navigator.vibrate&&navigator.vibrate(8)}catch(x){}}};
+dial.onpointerdown=e=>{dr=true;lastA=null;dial.setPointerCapture(e.pointerId);mv(e)};dial.onpointermove=e=>{if(dr)mv(e)};const rel=()=>{if(dr){dr=false;setPct(pct)}};dial.onpointerup=rel;dial.onpointercancel=rel;setPct(50);
+["Geografia","Biologia","Química","Física","Matemática","Português","História","Sociologia","Filosofia","Inglês","Espanhol","Literatura","Redação","Artes","Educação Física"].forEach(n=>{const b=document.createElement("button");b.className="chip";b.textContent=n;b.onclick=()=>{mat=n;[...$("mats").children].forEach(c=>c.classList.toggle("on",c===b))};$("mats").appendChild(b)});
+const MES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+$("dd").innerHTML='<option value="">Dia</option>'+Array.from({length:31},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join("");
+$("mes").innerHTML='<option value="">Mês</option>'+MES.map((m,i)=>`<option value="${i+1}">${m}</option>`).join("");
+const today0=()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())};
+const daysTo=(m,d)=>{if(!m||!d)return null;const t=today0();let e=new Date(t.getFullYear(),m-1,d);if(e<t)e=new Date(t.getFullYear()+1,m-1,d);return Math.round((e-t)/864e5)};
+const days=()=>daysTo(+$("mes").value,+$("dd").value);
+$("file").onchange=async e=>{let t=$("txt").value;$("fs").textContent="Lendo arquivos…";
+  for(const f of e.target.files){try{
+    if(/\.pdf$/i.test(f.name)){pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;let s="";
+      for(let i=1;i<=pdf.numPages;i++){const c=await(await pdf.getPage(i)).getTextContent();s+=c.items.map(x=>x.str).join(" ")+"\n"}t+="\n\n"+s}
+    else t+="\n\n"+await f.text()}catch(x){$("fs").textContent="Não consegui ler "+f.name+". Se for PDF escaneado (imagem), cole o texto.";return}}
+  $("txt").value=t.trim();$("fs").textContent="Arquivos lidos ✓"};
+function note(msg){const n=document.createElement("div");n.className="nt";n.innerHTML="<span>🔔</span><div style='flex:1'></div>";n.children[1].textContent=msg;const b=document.createElement("button");b.textContent="OK";b.onclick=()=>n.remove();n.appendChild(b);$("notes").appendChild(n)}
+function savePlan(){try{localStorage.setItem("plano",JSON.stringify({m:cfg.m,mes:+$("mes").value,dd:+$("dd").value,p:cfg.p,last:new Date().toDateString()}))}catch(e){}
+  try{if(window.Notification&&Notification.permission==="default")Notification.requestPermission()}catch(e){}}
+(function(){try{const pl=JSON.parse(localStorage.getItem("plano")||"null");if(!pl)return;const d=daysTo(pl.mes,pl.dd);if(d==null||pl.last===new Date().toDateString())return;
+  const msg=d===0?`Hoje é a prova de ${pl.m}! Boa sorte! 🍀`:`Faltam ${d} dia(s) para a prova de ${pl.m}. Hoje: releia o resumo e faça o quiz (${pl.p}% do conteúdo).`;
+  note(msg);try{if(window.Notification&&Notification.permission==="granted")new Notification("Estudo Fácil",{body:msg})}catch(e){}
+  pl.last=new Date().toDateString();localStorage.setItem("plano",JSON.stringify(pl))}catch(e){}})();
+$("go").onclick=async()=>{
+  $("err").textContent="";material=$("txt").value.trim();
+  if(!mat||material.length<80){$("err").textContent="Escolha a matéria e envie ou cole um conteúdo mais longo.";return}
+  if(!sample){$("err").textContent="A IA não está disponível.";return}
+  cfg={m:mat,p:pct,d:days()};
+  $("go").disabled=true;$("go").textContent="Gerando resumo…";
+  const prazo=cfg.d==null?"":cfg.d>=0?` A prova é em ${cfg.d} dia(s); sugira como distribuir o estudo.`:"";
+  try{
+    const r=await sample(`Você é um tutor de ${cfg.m}. Com base no arquivo abaixo, escreva em português um resumo COMPLETO e bem explicado para o aluno estudar para a prova. Cubra todos os assuntos do arquivo e complemente com o que mais for importante saber sobre o tema (definições, exemplos, fórmulas, curiosidades e conexões), mesmo que isso não esteja no arquivo. Comece direto pelo conteúdo: não escreva título, não cite o nome da matéria, porcentagem, série, prazo, foco nem "resumo de estudo". Use parágrafos e tópicos curtos, sem markdown (sem asteriscos e sem #).\n\nARQUIVO:\n${material.slice(0,30000)}`);
+    $("sum").textContent=r.text;savePlan();setStage("quiz");show(2);vids();
+  }catch(e){$("err").textContent="Não consegui gerar agora. Tente de novo."}
+  $("go").disabled=false;$("go").textContent="Gerar resumo";
+};
+const clean=t=>t.replace(/(\d|\))\s*[x×*]\s*(?=\d|\()/gi,"$1 vezes ").replace(/×/g," vezes ").replace(/=/g," igual a ").replace(/\+/g," mais ").replace(/÷/g," dividido por ").replace(/[*#_`~>]+/g," ").replace(/^\s*[-•]\s+/gm,"").replace(/\s[-–—]\s/g,", ").replace(/[ \t]+/g," ");
+let speaking=false;
+function stopSpeak(){try{speechSynthesis.cancel()}catch(e){}speaking=false;$("lis").textContent="🔊 Ouvir o resumo"}
+$("lis").onclick=()=>{if(!window.speechSynthesis){alert("Seu navegador não suporta leitura em voz alta.");return}
+  if(speaking){stopSpeak();return}
+  const parts=(clean($("sum").textContent).match(/[^.!?\n]+[.!?]?/g)||[]).map(s=>s.trim()).filter(Boolean);
+  const pv=speechSynthesis.getVoices().filter(v=>/^pt/i.test(v.lang));const vs=pv.find(v=>/pt[-_]BR/i.test(v.lang)&&/natural|neural|online/i.test(v.name))||pv.find(v=>/pt[-_]BR/i.test(v.lang)&&/francisca|luciana|fernanda|vit[óo]ria|maria|raquel|camila|thalita|feminin|female|google/i.test(v.name))||pv.find(v=>/pt[-_]BR/i.test(v.lang)&&!/daniel|antonio|ricardo|felipe|masculin|\bmale\b/i.test(v.name))||pv[0];
+  speaking=true;$("lis").textContent="⏹ Parar a leitura";
+  parts.forEach((p,i)=>{const u=new SpeechSynthesisUtterance(p);u.lang="pt-BR";u.pitch=1;u.rate=.97;if(vs)u.voice=vs;if(i===parts.length-1)u.onend=stopSpeak;speechSynthesis.speak(u)})};
+async function vids(){const b=$("vids");b.innerHTML='<p class="mu">Procurando vídeos…</p>';
+  try{const r=await sample.json(`Matéria: ${cfg.m}. Com base neste resumo, sugira 3 buscas de vídeo-aulas em português no YouTube que ajudem a estudar os pontos principais. Responda SOMENTE JSON: [{"t":"título curto do tema","q":"termos de busca"}].\n\nRESUMO:\n${$("sum").textContent}`);
+    b.innerHTML="<h2 style='font-size:1rem;margin-top:18px'>🎬 3 vídeos para estudar</h2>";
+    r.slice(0,3).forEach(x=>{const a=document.createElement("a");a.href="https://www.youtube.com/results?search_query="+encodeURIComponent(x.q);a.target="_blank";a.rel="noopener";a.className="lk";a.textContent="▶ "+x.t;b.appendChild(a)})}catch(e){b.innerHTML=""}}
+$("start").onclick=()=>show(1);show(0);
+let stage="quiz";
+function setStage(s){stage=s;const t=s==="test";$("rq").textContent=t?"Pronto para o teste final?":"Pronto para fazer o quiz?";$("rYes").textContent=t?"Começar o teste":"Sim, começar";$("rNo").textContent=t?"Revisar mais um pouco":"Revisar de novo"}
+function showReady(){$("qr").textContent=`Você acertou ${hits} de ${cards.length} afirmações.`;show(6)}
+async function review(btn,s){const old=btn.textContent;btn.disabled=true;btn.textContent="Preparando novo resumo…";
+  try{const r=await sample(`Você é um tutor. Matéria: ${cfg.m}. Já mostrei este resumo ao aluno:\n${$("sum").textContent}\n\nFaça um NOVO resumo COMPLETO, com outra abordagem (analogias, exemplos e os pontos mais cobrados em prova), complementando com o que for importante mesmo que não esteja no arquivo. Comece direto pelo conteúdo, sem título e sem citar matéria, porcentagem, série ou "resumo de estudo". Sem markdown, em português.\n\nCONTEÚDO:\n${material.slice(0,30000)}`);
+    $("sum").textContent=r.text;stage=s;show(2);scrollTo(0,0);vids()}catch(e){alert("Não consegui gerar outro resumo agora. Tente de novo.")}
+  btn.disabled=false;btn.textContent=old;setStage(stage)}
+$("rNo").onclick=()=>review($("rNo"),stage);$("tNo").onclick=()=>review($("tNo"),"test");$("tYes").onclick=()=>startTest();
+$("rYes").onclick=async()=>{
+  if(stage==="test"){startTest();return}
+  $("rYes").disabled=true;$("rYes").textContent="Criando perguntas…";
+  const n=Math.max(8,Math.round(cfg.p/10)*2);
+  try{
+    const r=await sample.json(`Com base no conteúdo, crie ${n} afirmações para um quiz de verdadeiro/falso (metade verdadeiras, metade falsas, misturadas) E 10 questões de múltipla escolha (4 opções) para um teste final, sobre ${cfg.p}% do conteúdo mais importante. Responda SOMENTE JSON: {"vf":[{"t":"afirmação","v":true,"e":"explicação curta"}],"mc":[{"q":"pergunta","o":["a","b","c","d"],"c":0,"e":"explicação curta"}]}. Em português.\n\nCONTEÚDO:\n${material.slice(0,30000)}`);
+    cards=r.vf;qs=r.mc.slice(0,10);ci=0;hits=0;ti=0;score=0;show(3);nextCard();
+  }catch(e){alert("Não consegui criar o quiz agora. Tente de novo.")}
+  $("rYes").disabled=false;setStage("quiz");
+};
+function nextCard(){
+  const st=$("stack");st.innerHTML="";$("qf").textContent="";
+  $("qp").textContent=`Afirmação ${Math.min(ci+1,cards.length)} de ${cards.length}`;$("qb").style.width=ci/cards.length*100+"%";
+  if(ci>=cards.length){showReady();return}
+  const el=document.createElement("div");el.className="sw";el.textContent=cards[ci].t;st.appendChild(el);
+  let x0=null,dx=0;
+  el.onpointerdown=e=>{x0=e.clientX;el.setPointerCapture(e.pointerId);el.style.transition="none"};
+  el.onpointermove=e=>{if(x0==null)return;dx=e.clientX-x0;el.style.transform=`translateX(${dx}px) rotate(${dx/18}deg)`;el.style.borderColor=dx>0?"var(--ok)":"var(--no)"};
+  el.onpointerup=()=>{if(x0==null)return;x0=null;if(Math.abs(dx)>90)answer(dx>0);else{el.style.transition="transform .2s";el.style.transform="";el.style.borderColor=""}dx=0};
+}
+function answer(v){
+  const c=cards[ci],el=document.querySelector(".sw");if(!el)return;
+  const right=c.v===v;if(right)hits++;
+  el.style.transition="transform .25s,opacity .25s";el.style.transform=`translateX(${v?420:-420}px) rotate(${v?20:-20}deg)`;el.style.opacity=0;
+  $("qf").textContent=(right?"✅ Acertou! ":"❌ Errou. Era "+(c.v?"verdadeiro":"falso")+". ")+(c.e||"");
+  ci++;$("qb").style.width=ci/cards.length*100+"%";
+  setTimeout(()=>{const f=$("qf").textContent;nextCardKeep(f)},1300);
+}
+function nextCardKeep(f){nextCard();if(ci<cards.length)$("qf").textContent=f}
+$("bn").onclick=()=>answer(false);$("by").onclick=()=>answer(true);
+function startTest(){show(4);ti=0;score=0;renderQ()}
+function renderQ(){
+  const q=qs[ti];$("tp").textContent=`Teste final · questão ${ti+1} de ${qs.length}`;$("tq").textContent=q.q;$("tf").textContent="";$("tn").classList.add("hide");
+  const o=$("to");o.innerHTML="";
+  q.o.forEach((t,i)=>{const b=document.createElement("button");b.className="opt";b.textContent=t;
+    b.onclick=()=>{[...o.children].forEach((x,j)=>{x.disabled=true;if(j==q.c)x.classList.add("right")});
+      if(i==q.c)score++;else b.classList.add("wrong");
+      $("tf").textContent=(i==q.c?"✅ Correto! ":"❌ Não foi dessa vez. ")+(q.e||"");$("tn").classList.remove("hide");$("tn").textContent=ti+1<qs.length?"Próxima":"Ver resultado"};
+    o.appendChild(b)});
+}
+$("tn").onclick=()=>{ti++;if(ti<qs.length)renderQ();else{
+  const p=Math.round(score/qs.length*100);
+  $("res").textContent=`Quiz: ${hits} de ${cards.length}. Teste final: ${score} de ${qs.length} (${p}%). `+(p>=70?"Você está indo muito bem! 🎉":"Vale revisar o resumo e tentar de novo. 💪");show(5)}};
+$("again").onclick=()=>{$("sub").textContent="Resumo, quiz de deslizar e teste final, feitos pela IA com o seu material.";show(1)};
+</script></main></body></html>
